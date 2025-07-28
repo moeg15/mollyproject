@@ -22,14 +22,14 @@ body {
 
 .rightside {
   display: flex;
- 
-  width: 85%;
+  min-width: 85%;
+  min-height: 100vh; /* instead of just height */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   box-sizing: border-box;
   overflow-y: auto;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction:  column;
   position: relative; /* <-- Add this line */
 }
@@ -42,16 +42,17 @@ body {
 }
 
 .textBox {
- 
+  margin-top: auto; /* 👈 push it to the bottom */
   width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
   height: 30%;
-  background-color: rgba(51, 51, 51, 0.5); /* instead of using opacity */
+  background-color: rgba(51, 51, 51, 0.5);
   padding-top: 1%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
-
 }
 .face {
   
@@ -74,13 +75,15 @@ body {
 }
 
 .text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: clamp(16px, 4vw, 32px);
   white-space: normal;
   overflow-wrap: break-word;
-  max-width: 50%;
-  text-align: center;
-  align-self: center;
-  /* Retro game styling */
+  max-width: 100%;
+  text-align: left;
+  padding: 0 1rem;
   font-family: 'Press Start 2P', cursive, monospace;
   color: #00ff00;
   text-shadow:
@@ -89,21 +92,36 @@ body {
     0 0 5px #0f0;
   letter-spacing: 0.1em;
   user-select: none;
+  gap: 1rem; /* Add space between text and button */
+  flex: 1;
+  min-width: 0; /* Necessary for flex children to wrap properly */
+}
+
+.text p {
+  flex: 1;                 /* Allow it to grow and shrink */
+  margin: 0;
+  word-wrap: break-word;   /* Allows breaking long words */
+  overflow-wrap: break-word;
+  white-space: normal;     /* Allows normal line wrapping */
+  min-width: 0;
 }
 
 .nextButton {
-  padding: 10px 16px;
+  padding: 14px 24px;               /* Increased padding */
+  font-size: 1.25rem;               /* Scales up text size */
+  transform: scale(1.1);            /* Slightly enlarges the button */
   background-color: #4caf50;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;               /* Slightly more rounded */
   color: white;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: 
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .nextButton:hover {
   background-color: #45a049;
+  transform: scale(1.15);           /* Slight zoom on hover */
 }
-
-
 
