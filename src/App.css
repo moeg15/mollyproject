@@ -1,38 +1,109 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
 .App {
-  text-align: center;
+  display: flex;          /* Enables horizontal layout */
+  height: 100vh;          /* Full viewport height */
+  width: 100vw;           /* Full viewport width */
+  flex-direction: row;    /* Left to right */
+  overflow: hidden;       /* Prevent unwanted scroll */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.leftside{
+  width: 15%;
+  background-color: #ae25d8; /* just for visualization */
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.rightside {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+ 
+  width: 85%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  overflow-y: auto;
+  justify-content: space-between;
+  flex-direction:  column;
+  position: relative; /* <-- Add this line */
+}
+.gamehead{
+ 
+  height: 20%;
+  width: 100%;
+  background-color: rgba(51, 51, 51, 0.5); /* instead of using opacity */
+ 
+}
+
+.textBox {
+ 
+  width: 100%;
+  height: 30%;
+  background-color: rgba(51, 51, 51, 0.5); /* instead of using opacity */
+  padding-top: 1%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+
+}
+.face {
+  
+  border-radius: 50%;        /* circle */
+  border: 2px solid black;
+  overflow: hidden;          /* clip overflowing image */
+  flex-shrink: 0;            /* prevent shrinking */
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+ 
+}
+
+.face img {
+  width: 100%;               /* fill the face container */
+  height: 100%;
+  object-fit: cover;         /* crop image to fill */
+  border-radius: 50%;        /* ensure image is rounded */
+  display: block;            /* remove inline space */
+}
+
+.text {
+  font-size: clamp(16px, 4vw, 32px);
+  white-space: normal;
+  overflow-wrap: break-word;
+  max-width: 50%;
+  text-align: center;
+  align-self: center;
+  /* Retro game styling */
+  font-family: 'Press Start 2P', cursive, monospace;
+  color: #00ff00;
+  text-shadow:
+    1px 1px 0 #000,
+    2px 2px 0 #0f0,
+    0 0 5px #0f0;
+  letter-spacing: 0.1em;
+  user-select: none;
+}
+
+.nextButton {
+  padding: 10px 16px;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 6px;
   color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.nextButton:hover {
+  background-color: #45a049;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
