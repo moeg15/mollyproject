@@ -8,26 +8,22 @@ export default function LeftSide() {
     const audio = audioRef.current;
     if (audio) {
       audio.loop = true;
-      console.log("music on");
+      const newMuteState = !isMuted;
+      setIsMuted(newMuteState);
+      audio.muted = newMuteState;
 
-      // If audio is paused or ended, restart it
-      if (audio.paused || audio.ended) {
+      if (!newMuteState && (audio.paused || audio.ended)) {
         audio.currentTime = 0;
         audio.play().catch((err) => {
           console.warn('Audio play error:', err);
         });
       }
-      console.log("music off");
-      // Toggle muted state
-      const newMuteState = !isMuted;
-      audio.muted = newMuteState;
-      setIsMuted(newMuteState);
     }
   };
 
   return (
     <div className="leftside" style={{ position: 'relative' }}>
-      <audio ref={audioRef} src="/music/theme.mp3" />
+      <audio ref={audioRef} src="/music/theme.mp3" muted loop />
       <button
         onClick={toggleMute}
         style={{
