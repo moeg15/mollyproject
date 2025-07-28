@@ -29,23 +29,24 @@ export default function RightSide({ storyData }) {
       }}
     >
       <div className="gamehead" />
-  
       {isOn && currentLine && (
-        <div className="textBox">
-          <div className="face">
-            <img
-              src={currentLine.character.image}
-              alt={currentLine.character.name}
-            />
-          </div>
-          <div className="text">
-            <p>{currentLine.text}</p>
-            <button className="nextButton" onClick={handleNext}>
-              Next
-            </button>
-          </div>
-        </div>
-      )}
+  <div className="textBox">
+    <div className="face">
+      <img
+        src={currentLine.character.image}
+        alt={currentLine.character.name}
+      />
+      <div className="character-name">{currentLine.character.name}</div> 
+    </div>
+    <div className="text">
+      <p>{currentLine.text}</p>
+      <button className="nextButton" onClick={handleNext}>
+        Next
+      </button>
+    </div>
+  </div>
+)}
+
     </div>
   );
   

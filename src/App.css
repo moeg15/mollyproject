@@ -56,8 +56,7 @@ body {
 }
 .face {
   
-  border-radius: 50%;        /* circle */
-  border: 2px solid black;
+ 
   overflow: hidden;          /* clip overflowing image */
   flex-shrink: 0;            /* prevent shrinking */
   display: flex;
@@ -67,6 +66,8 @@ body {
 }
 
 .face img {
+  border-radius: 50%;        /* circle */
+  border: 2px solid black;
   width: 100%;               /* fill the face container */
   height: 100%;
   object-fit: cover;         /* crop image to fill */
@@ -125,3 +126,10 @@ body {
   transform: scale(1.15);           /* Slight zoom on hover */
 }
 
+.character-name {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #fff; /* or any color that fits your theme */
+}
