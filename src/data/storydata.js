@@ -60,7 +60,7 @@ const storyData = {
     requiresRoll: false,
     backgroundImage: "/backgroundimgs/bg-0.png"
   },
-  dontHelp:{
+  Dohelp:{
 
 
   }
