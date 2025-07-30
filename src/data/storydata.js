@@ -61,7 +61,38 @@ const storyData = {
     backgroundImage: "/backgroundimgs/bg-0.png"
   },
   Dohelp:{
+    talking: [
+      {
+        character: chardata.Valentino, 
+        text: "hello molly i will be your caddy today"
+      },
+      {
+        character: chardata.molly, 
+        text: "are you an orangutan?"
+      },
+      {
+        character: chardata.Valentino, 
+        text: "A cheeky one! I graduated jungle school with a minors in mini golf! so im here to help!"
+      },
+      {
+        character: chardata.molly, 
+        text: "so what your gonna give me advice?"
+      },
+      {
+        character: chardata.Valentino, 
+        text: "yep and I have some for this hole!"
+      }
+    ],
+    choices: [
+      { label: "take the shot", next: "takeshot1", scoreIncrement: 3  },
+      { label: "talk to Valentino", next: "talkVal1", scoreIncrement: [1,2] }
+    ],
+    requiresRoll: false,
+    backgroundImage: "/backgroundimgs/bg-1.png"
 
+  },
+  takeshot1:{
+   
 
   }
 

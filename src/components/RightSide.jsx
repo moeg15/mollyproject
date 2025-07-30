@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useTypedText } from '../hooks/useTypedText';
+
+
 
 export default function RightSide({ storyData, onChoiceMade }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -13,6 +16,8 @@ export default function RightSide({ storyData, onChoiceMade }) {
 
   const bgimg = isChoosing ? "/backgroundimgs/choicetime.png" : (storyData?.backgroundImage || '');
   const currentLine = storyData?.talking?.[currentIndex];
+  const typedText = useTypedText(currentLine?.text || "", 25);
+
 
   const handleNext = () => {
     if (currentIndex + 1 < storyData.talking.length) {
@@ -39,7 +44,7 @@ export default function RightSide({ storyData, onChoiceMade }) {
         backgroundColor: isOn ? 'transparent' : '#777',
       }}
     >
-      <div className="gamehead">
+      <div className="gamehead retro-borde">
         {isChoosing && storyData.choices && (
           <div className="choices">
             {storyData.choices.map((choice, i) => (
@@ -56,16 +61,17 @@ export default function RightSide({ storyData, onChoiceMade }) {
       </div>
 
       {isOn && !isChoosing && currentLine && (
-        <div className="textBox">
-          <div className="face">
+        <div className="textBox retro-borde">
+          <div className="face retro-borde">
             <img
               src={currentLine.character.image}
               alt={currentLine.character.name}
             />
             <div className="character-name">{currentLine.character.name}</div>
           </div>
-          <div className="text">
-            <p>{currentLine.text}</p>
+          <div className="text retro-borde ">
+          <p className='cursor typewriter'>{typedText}</p>
+
             <button className="nextButton" onClick={handleNext}>
               Next
             </button>

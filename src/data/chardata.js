@@ -9,6 +9,11 @@ const chardata = {
     image: "/pfp/evilgolf.png",
    
   },
+  Valentino : {
+    name: "Cheeky Valentino",
+    image: "/pfp/Valentino.png",
+   
+  },
 
 };
 

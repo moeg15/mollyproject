@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 export default function LeftSide() {
   const audioRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
+  
 
   const toggleMute = () => {
     const audio = audioRef.current;
